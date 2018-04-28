@@ -63,18 +63,19 @@ while 1==1 {
         continue
     }
     if remainder != 0 {
-        print("Result is", validNumeratorInput "/" validDenominatorInput)
-        break
+        print("Result is", validNumeratorInput, "/" , validDenominatorInput)
+        continue
     }
-  
-}
-// Remember it is for i in stride not just for stride.
     for mixedValues in stride(from: validDenominatorInput/2, to: 2, by: -1) {
         if validNumeratorInput % validDenominatorInput % mixedValues != 0 && validDenominatorInput % mixedValues != 0 {
-            
+            print("got here")
         }
         
+    }
 }
+// Remember it is for i in stride not just for stride.
+
+
 //else if validNumeratorInput % validDenominatorInput != 0 {
 
 
