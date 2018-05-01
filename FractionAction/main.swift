@@ -25,7 +25,7 @@ while 1==1 {
         print("Insert Numerator Integer")
         continue
     }
-    if integerInput <= 0 {
+    if integerInput < 0 {
         print("Insert Numerator Integer")
         continue
     }
@@ -60,6 +60,7 @@ while 1==1 {
     let quotient = validNumeratorInput / validDenominatorInput
     if unreducedOutputNumerator == 0 {
         print("Result is", quotient)
+        break
     } else if validDenominatorInput % unreducedOutputNumerator == 0 { // when the unreduced numerator is a factor of the
                                                                       // original denominator (e.g.: 5 / 10 )
         let reducedOutputNumerator = 1
@@ -77,11 +78,11 @@ while 1==1 {
             
         }
         // Get the parts of the reduced fraction
-        let reducedOutputNumerator = validNumeratorInput / GCF
+        let reducedOutputNumerator = unreducedOutputNumerator / GCF
         let reducedOutputDenominator = validDenominatorInput / GCF
         
         // Print the reduced fraction
-        print("\(quotient) \(reducedOutputNumerator)/\(reducedOutputDenominator)")
+        print("\(reducedOutputNumerator)/\(reducedOutputDenominator)")
         break
     }
 }
