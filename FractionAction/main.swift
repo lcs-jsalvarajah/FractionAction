@@ -60,19 +60,26 @@ while 1==1 {
     let quotient = validNumeratorInput / validDenominatorInput
     if remainder == 0 {
         print("Result is", quotient)
-        continue
-    }
-    if remainder != 0 {
-        print("Result is", validNumeratorInput, "/" , validDenominatorInput)
-        continue
-    }
-    for mixedValues in stride(from: validDenominatorInput/2, to: 2, by: -1) {
-        if validNumeratorInput % validDenominatorInput % mixedValues != 0 && validDenominatorInput % mixedValues != 0 {
-            print("got here")
+    } else {
+        var GCF = -1
+        for mixedValues in stride(from: remainder/2, to: 2, by: -1) {
+            if remainder % mixedValues == 0 && validDenominatorInput % mixedValues == 0 {
+                GCF = mixedValues
+                print(GCF)
+                break
+            }
+            
         }
+        // Get the parts of the reduced fraction
+        let reducedOutputNumerator = validNumeratorInput / GCF
+        let reducedOutputDenominator = validDenominatorInput / GCF
         
+        // Print the reduced fraction
+        print("\(quotient) \(reducedOutputNumerator)/\(reducedOutputDenominator)")
+        break
     }
 }
+
 // Remember it is for i in stride not just for stride.
 
 
