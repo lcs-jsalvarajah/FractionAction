@@ -56,16 +56,22 @@ while 1==1 {
 // Implement the primary logic of the problem here
 
 while 1==1 {
-   let remainder = validNumeratorInput % validDenominatorInput
+   let unreducedOutputNumerator = validNumeratorInput % validDenominatorInput
     let quotient = validNumeratorInput / validDenominatorInput
-    if remainder == 0 {
+    if unreducedOutputNumerator == 0 {
         print("Result is", quotient)
-    } else {
-        var GCF = -1
-        for mixedValues in stride(from: remainder/2, to: 2, by: -1) {
-            if remainder % mixedValues == 0 && validDenominatorInput % mixedValues == 0 {
+    } else if validDenominatorInput % unreducedOutputNumerator == 0 { // when the unreduced numerator is a factor of the
+                                                                      // original denominator (e.g.: 5 / 10 )
+        let reducedOutputNumerator = 1
+        let reducedOutputDenominator = validDenominatorInput / unreducedOutputNumerator
+        print("\(quotient) \(reducedOutputNumerator) \(reducedOutputDenominator)")
+        break
+        
+} else {
+        var GCF = 1
+        for mixedValues in stride(from: unreducedOutputNumerator/2, to: 2, by: -1) {
+            if unreducedOutputNumerator % mixedValues == 0 && validDenominatorInput % mixedValues == 0 {
                 GCF = mixedValues
-                print(GCF)
                 break
             }
             
