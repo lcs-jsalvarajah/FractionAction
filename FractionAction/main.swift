@@ -13,7 +13,7 @@ import Foundation
 
 //The user input.
 var RawUserInput = readLine()
-
+    print("Insert Numerator Integer")
 var validNumeratorInput = 0
 while 1==1 {
     guard let givenInput = readLine() else {
@@ -80,10 +80,15 @@ while 1==1 {
         // Get the parts of the reduced fraction
         let reducedOutputNumerator = unreducedOutputNumerator / GCF
         let reducedOutputDenominator = validDenominatorInput / GCF
-        
-        // Print the reduced fraction
-        print("\(reducedOutputNumerator)/\(reducedOutputDenominator)")
-        break
+        if quotient == 0 {
+            print("\(reducedOutputNumerator)/\(reducedOutputDenominator)")
+            break
+        } else {
+            // Print the reduced fraction
+            print("\(quotient) \(reducedOutputNumerator)/\(reducedOutputDenominator)")
+            break
+        }
+       
     }
 }
 
